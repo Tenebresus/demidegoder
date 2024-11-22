@@ -61,7 +61,6 @@ type Parser struct {
 
 }
 
-
 func Parse(dmidecode string) []byte {
 
     p := Parser {
@@ -117,15 +116,7 @@ func getProperties(match string) map[string]string {
 
 func (p *Parser) getMatches() []string {
 
-    regex, err := regexp.Compile(`(?m)Handle[\s\S]+?\n\n`)
-
-    if err != nil {
-
-        fmt.Println(err)
-        return []string{}
-
-    }
-
+    regex := regexp.MustCompile(`(?m)Handle[\s\S]+?\n\n`)
     return regex.FindAllString(p.Dmidecode, -1)
 
 }
