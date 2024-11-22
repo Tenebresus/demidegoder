@@ -1,3 +1,3 @@
-module github.com/Tenebresus/demidegoder
+module github.com/Tenebresus/dmidegoder
 
 go 1.22.2
